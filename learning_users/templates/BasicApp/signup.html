@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'BasicApp/base.html' %}
+{% load static %}
+
+<body>
+    {% block body_block %}
+    <h1>Welcome to the sign page</h1>
+
+    <form enctype="multipart/form-data" method="POST">
+        {% if registered %}
+        <h3>Cogratulations for registering</h3>
+        {% else %}
+        <div class="form-group">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+        {% endif %}
+    </form>
+
+
+    {% endblock %}
+
+</body>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'BasicApp/base.html' %}
+{% load static %}
+
+<body>
+    {% block body_block %}
+    <h1>Welcome to the sign page</h1>
+
+    <form action="{% url 'BasicApp:login' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">username</label>
+        <input type="text" name="username">
+        <label for="username">password</label>
+        <input type="text" name="password">
+        <button type="submit">Login</button>
+
+    </form>
+
+
+    {% endblock %}
+
+</body>
